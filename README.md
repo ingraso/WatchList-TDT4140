@@ -1,17 +1,17 @@
-### 31
+## 31
 
-## Name convention for issues and commits
-#Test:
+### Name convention for issues and commits
+Test:
     - For adding of testing
 
-#Feature:
+Feature:
     - For adding of new features to the program
 
-#Update:
+Update:
     - For updating existing backend or frontend
 
-#Remove:
+Remove:
     - Removing of code (?)
 
-#Styling:
+Styling:
     - For adding of styling

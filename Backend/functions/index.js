@@ -1,16 +1,9 @@
-import * as functions from 'firebase-functions';
-import * as admin from 'firebase-admin';
-import * as firebaseHelper from 'firebase-functions-helper';
-import * as express from 'express';
-import * as bodyParser from "body-parser";
-admin.initializeApp(functions.config().firebase);
-const db = admin.firestore();
-const app = express();
-const main = express();
-const contactsCollection = 'contacts';
-main.use('/api/v1', app);
-main.use(bodyParser.json());
-main.use(bodyParser.urlencoded({ extended: false }));
-// webApi is your functions name, and you will pass main as
-// a parameter
-export const webApi = functions.https.onRequest(main);
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.8.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.8.1/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>

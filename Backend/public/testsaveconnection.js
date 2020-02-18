@@ -1,22 +1,25 @@
 
 
-function saveurname() {
-  var newname = document.getElementById('nametosave').value
-  console.log(newname)
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "text/plain");
+function saveuser(){
+var username = document.getElementById("usernametosave").value
+var firstname = document.getElementById("firstnametosave").value
+var lastname = document.getElementById("lastnametosave").value
+var birthday = document.getElementById("birthdaytosave").value
+var password = document.getElementById("passwordtosave").value
 
-var raw = "{ \n      \"date_of_birth\": \"June 23, 1912\", \n      \"full_name\": \"Alan Turing\", \n      \"user_name\": \"Alan\", \n      \"password\": \"123\" \n}";
+$(document).ready(function () {
+   var param = {lastName: lastname, firstName: firstname, birthday: birthday, password: password, userName: username };
 
-var requestOptions = {
-  method: 'PUT',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
-
-fetch("https://watchlistas.firebaseio.com/users/"+newname+".json?auth=qWIkHwOFG3EpS9gYCNP50tndNOFBS57ta41Rcy1f", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+   $.ajax({
+     url: 'https://watchlistas.firebaseio.com/users/'+username+'.json?auth=qWIkHwOFG3EpS9gYCNP50tndNOFBS57ta41Rcy1f',
+     type: "PUT",
+     data: JSON.stringify(param),
+     success: function () {
+       console.log("success");
+     },
+     error: function(error) {
+       alert("error: "+error);
+     }
+   });
+ });
 }

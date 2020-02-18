@@ -1,12 +1,13 @@
-var settings = {
-  "url": "https://watchlistas.firebaseio.com/users/users.json?auth=qWIkHwOFG3EpS9gYCNP50tndNOFBS57ta41Rcy1f",
-  "method": "GET",
-  "timeout": 0,
-  "headers": {
-    "Access-Control-Allow-Credentials": "true"
-  },
+var myHeaders = new Headers();
+myHeaders.append("Access-Control-Allow-Credentials", "true");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
 };
 
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
+fetch("https://watchlistas.firebaseio.com/users.json?auth=qWIkHwOFG3EpS9gYCNP50tndNOFBS57ta41Rcy1f", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));

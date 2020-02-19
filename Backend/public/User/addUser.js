@@ -1,17 +1,17 @@
-function saveuser() {
-  var username = document.getElementById("usernametosave").value;
-  var firstname = document.getElementById("firstnametosave").value;
-  var lastname = document.getElementById("lastnametosave").value;
-  var birthday = document.getElementById("birthdaytosave").value;
+function saveUser() {
+  var username = document.getElementById("username").value;
+  var firstName = document.getElementById("firstName").value;
+  var lastName = document.getElementById("lastName").value;
+  var birthday = document.getElementById("birthday").value;
   var password = document.getElementById("passwordtosave").value;
 
   $(document).ready(function() {
     var param = {
-      lastName: lastname,
-      firstName: firstname,
+      userName: username,
+      firstName: firstName,
+      lastName: lastName,
       birthday: birthday,
-      password: password,
-      userName: username
+      password: password
     };
 
     $.ajax({

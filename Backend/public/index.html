@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WatchList AS</title>
   </head>
   <body>
-    <h1> test </h1>
-    <input id="usernametosave" placeholder="Username?"> </input>
-    <input id="firstnametosave" placeholder="firstName?"> </input>
-    <input id="lastnametosave" placeholder="lastName?"> </input>
-    <input id="birthdaytosave" placeholder="Birthday?"> </input>
-    <input id="passwordtosave" placeholder="Password?"> </input>
-    <button onclick="saveuser()">Save </button>
-    <div id="demo"> </div>
+    <h1>test</h1>
+    <h3>Add user</h3>
+    <input id="usernametosave" placeholder="Username?" />
+    <input id="firstnametosave" placeholder="firstName?" />
+    <input id="lastnametosave" placeholder="lastName?" />
+    <input id="birthdaytosave" placeholder="Birthday?" />
+    <input id="passwordtosave" placeholder="Password?" />
+    <button onclick="saveuser()">Save user</button>
+    <div id="demo"></div>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <h3>Add movie</h3>
+    <input id="movieTitle" placeholder="Title?" />
+    <input id="movieProductionYear" placeholder="Production year?" />
+    <input id="movieDirector" placeholder="Director?" />
+    <button onclick="saveMovie()">Save movie</button>
+
+    <h3>Add series</h3>
+    <input id="seriesTitle" placeholder="Title?" />
+    <input id="seriesProducer" placeholder="Producer?" />
+    <button onclick="saveSeries()">Save series</button>
+
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
     <script src="testconnection.js" type="text/javascript"></script>
     <script src="testsaveconnection.js" type="text/javascript"></script>
-
+    <script src="Movies/addMovie.js" type="text/javascript"></script>
+    <script src="Movies/getMovies.js" type="text/javascript"></script>
+    <script src="Series/addSeries.js" type="text/javascript"></script>
+    <script src="Series/getSeries.js" type="text/javascript"></script>
   </body>
 </html>

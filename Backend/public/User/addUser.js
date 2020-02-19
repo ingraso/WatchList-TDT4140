@@ -3,11 +3,11 @@ function saveUser() {
   var firstName = document.getElementById("firstName").value;
   var lastName = document.getElementById("lastName").value;
   var birthday = document.getElementById("birthday").value;
-  var password = document.getElementById("passwordtosave").value;
+  var password = document.getElementById("password").value;
 
   $(document).ready(function() {
     var param = {
-      userName: username,
+      username: username,
       firstName: firstName,
       lastName: lastName,
       birthday: birthday,

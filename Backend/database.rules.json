@@ -1,6 +1,9 @@
 {
   "rules": {
     ".read": "auth != null",
-    ".write": "auth != null"
+    ".write": "auth != null",
+    "users": {
+      ".validate": "newData.hasChildren(['username', 'firstName', 'lastName', 'birthday', 'password']) && newData.child('username').isString() && newData.child('firstName').isString() && newData.child('lastName').isString() && newData.child('birthday').isNumber() && newData.child('password').isString()"
+    }
   }
 }

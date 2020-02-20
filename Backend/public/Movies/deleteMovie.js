@@ -1,5 +1,5 @@
 // To delete a movie, we have to GET it first,
-// then use the result to send a DELETE request
+// then use the result to send a DELETE requests
 
 function deleteMovie(movieID) {
   var settings = {

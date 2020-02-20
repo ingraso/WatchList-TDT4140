@@ -1,6 +1,6 @@
 import React from "react";
 //import NavBar from "./navbar";
-import Profile from "./profile";
+import Profile from "./users/profile";
 
 function App() {
   return <React.Fragment>

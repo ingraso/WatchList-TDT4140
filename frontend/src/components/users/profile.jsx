@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import NavBar from "./../navbar";
+import NavBar from "./navbar";
+import {saveUser} from "./addUser";
 
 class Profile extends Component {
   constructor(props) {
@@ -22,12 +23,7 @@ class Profile extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(
-      this.state.firstName,
-      this.state.lastName,
-      this.state.username,
-      this.state.password
-    );
+    saveUser(this.state.username, this.state.password, this.state.firstName, this.state.lastName)
   };
 
   render() {
@@ -79,7 +75,7 @@ class Profile extends Component {
               />
             </div>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-warning">
             {" "}
             submit{" "}
           </button>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { data } from '../../Backend/getMovies.js';
 import $ from 'jquery';
+import "./movie.css";
  var displaymovies
 class MoviesDisplay extends Component {
   constructor(props) {
@@ -29,10 +30,8 @@ class MoviesDisplay extends Component {
 }).then(() => {
     this.setState({ list: result });
   displaymovies = this.state.list.map((movie, index) =>  (
-    <div>
-    <p>{movie[0].title}</p>
-    <div className="movie">
-  <h2>{movie[0].title}</h2>
+    <div className="movie" key={index+movie[0].title}>
+  <h2  className="title">{movie[0].title}</h2>
   <div>
     <img
       width="200"
@@ -40,16 +39,16 @@ class MoviesDisplay extends Component {
       src={movie[0].image}
     />
   </div>
-  <p>({movie.Year})</p>
-</div>
+  <p>Regisert av: {movie[0].director}</p>
+  <p>Description placeholder text: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum </p>
+
     </div>
 ))
+
     this.setState({ list: result });
+    console.log(this.state.list)
 })
 }
-
-
-
     componentDidMount(){
         this.fetchData();
 
@@ -58,14 +57,10 @@ class MoviesDisplay extends Component {
 
     return (
 <div>
-      <h1>Hey </h1>
-      <div>
+      <div className="moviesContainer">
       {displaymovies}
           </div>
-
       </div>
-
-
     );
   }
 

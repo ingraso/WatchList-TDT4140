@@ -3,6 +3,7 @@ import React from "react";
 import Profile from "./users/profile";
 import Login from "./users/login";
 import MoviesDisplay from "./movies/moviesDisplay";
+import landingp from "./pages/landingP";
 import "./app.css";
 import { BrowserRouter,Switch, Route,Link } from "react-router-dom";
 
@@ -31,6 +32,7 @@ function App() {
         </Route>
         <Route path="/">
       <Login></Login>
+      <landingp></landingp>
         <Link to="/create">Create</Link>
         </Route>
       </Switch>

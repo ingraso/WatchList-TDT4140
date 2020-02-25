@@ -4,6 +4,7 @@
    background-color: blue;
    border-style: solid;
   margin-left: 10px;
+
 }
 
 .title-year {
@@ -22,6 +23,6 @@
 }
 
 .moviesContainer {
-display:flex;
+
 
 }

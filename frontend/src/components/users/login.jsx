@@ -3,6 +3,7 @@ import $ from 'jquery';
 import {getuser} from "./getuser";
 import { Redirect } from 'react-router';
 import createHistory from 'history/createBrowserHistory'
+import "./landingpage.css"; 
 
 
 class Login extends Component {
@@ -49,7 +50,47 @@ if (result[0].username == this.state.username  && result[0].password == this.sta
   render() {
 
     return (
-      <React.Fragment>
+    <div>
+          <div> 
+
+<div className="app-container">
+
+<div className="nav">
+
+<div className="nav-left">
+  <input
+    className="nav-search-input"
+    placeholder="Search"
+  />
+  <button className="nav-search-button">Search</button>
+</div>
+
+<div className="nav-center"> 
+    <div className="nav-logo"><h2> WatchList</h2></div>
+      </div>
+
+<div className="nav-right">
+  <div className="nav-button">Sign up</div>
+  <div className="nav-button">Log in</div>
+</div>
+
+</div>
+
+
+<div className="movies">
+
+<div className="movies-right"> <h5>This weeks: </h5></div>
+
+</div>   
+
+</div>
+
+
+<div>
+
+
+</div>
+</div>
         <form onSubmit={this.handleSubmit}>
           <div className="form-row">
             <div className="col">
@@ -80,7 +121,7 @@ if (result[0].username == this.state.username  && result[0].password == this.sta
           </button>
         </form>
 
-      </React.Fragment>
+    </div>
 
     );
   }

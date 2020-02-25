@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-  
+
 const NavBar = () => {
   return (
     <nav className="navbar navbar-light bg-dark">
@@ -8,7 +8,7 @@ const NavBar = () => {
       </a>
     </nav>
   );
-}; 
+};
 
 
 export default NavBar;

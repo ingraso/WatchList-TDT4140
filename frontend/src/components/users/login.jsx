@@ -2,15 +2,20 @@ import React, { Component } from "react";
 import $ from "jquery";
 import { getuser } from "./getuser";
 import { Redirect } from "react-router";
-import createHistory from "history/createBrowserHistory";
 import "./landingpage.css";
+import Popup from "reactjs-popup";
+import MoviesDisplay from "../movies/moviesDisplay";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      redirect:"",
+      loggedin:"Guest",
+      isadmin:false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -28,37 +33,43 @@ class Login extends Component {
   };
   fetchUsers = async () => {
     let response = await getuser();
-    console.log(this.state.username + "  " + this.state.password);
-    console.log(response);
     var result = Object.keys(response).map(function(key) {
       return [response[key]];
     });
     result.map((result, index) => {
-      console.log(result[0].username);
-      console.log(result[0].password);
-      console.log(this.state.username);
+
       if (
         result[0].username === this.state.username &&
         result[0].password === this.state.password
       ) {
         console.log("logged in");
-        const history = createHistory();
-        history.push("/movies");
-        window.location.reload();
+              console.log(result[0].admin);
+          this.setState({loggedin: result[0].username});
+          if (result[0].admin == "1") {
+            console.log("ADMIN")
+            this.setState({isadmin: true});
+          }
+          else {
+              this.setState({isadmin: false });
+          }
       }
     });
   };
   render() {
+
     return (
       <div>
         <div>
           <div className="app-container">
             <div className="nav">
               <div className="nav-left">
+              <h1>Welcome {this.state.loggedin}! </h1>
                 <input className="nav-search-input" placeholder="Search" />
                 <button className="nav-search-button">Search</button>
               </div>
-
+ {this.state.isadmin ?   <li>
+     <Link to="/addMovies">Add movies and series</Link>
+   </li>: null }
               <div className="nav-center">
                 <div className="nav-logo">
                   <h2> WatchList</h2>
@@ -66,10 +77,42 @@ class Login extends Component {
               </div>
 
               <div className="nav-right">
-                <div className="nav-button">
-                  Sign up
+                  <Link className="nav-button" to="/create">Create</Link>
+    <Popup  className="nav-button" trigger={<button> Log in</button>} position="right center">
+    <div className="Popup-holder">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="form-row">
+                    <div className="col">
+                      Username:
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Your username"
+                        value={this.state.username}
+                        onChange={this.handleInputChange}
+                        name="username"
+                      />
+                    </div>
+                    <div className="col">
+                      Password:
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Your password"
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        name="password"
+                      />
+                    </div>
+                  </div>
+
+                  <button type="submit" className="btn btn-warning">
+                    {" "}
+                    Login{" "}
+                  </button>
+                </form>
                 </div>
-                <div className="nav-button">Log in</div>
+ </Popup>
               </div>
             </div>
 
@@ -83,40 +126,13 @@ class Login extends Component {
 
           <div></div>
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-row">
-            <div className="col">
-              Username:
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Your username"
-                value={this.state.username}
-                onChange={this.handleInputChange}
-                name="username"
-              />
-            </div>
-            <div className="col">
-              Password:
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Your password"
-                value={this.state.password}
-                onChange={this.handleInputChange}
-                name="password"
-              />
-            </div>
-          </div>
-
-          <button type="submit" className="btn btn-warning">
-            {" "}
-            Login{" "}
-          </button>
-        </form>
+    <MoviesDisplay></MoviesDisplay>
       </div>
     );
   }
 }
 
 export default Login;
+
+
+//https://react-popup.elazizi.com/introduction/

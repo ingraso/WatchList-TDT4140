@@ -6,8 +6,6 @@ import { confirmDeletion } from "./deleteMovie.js";
 
 var displaymovies;
 
-// onClick={whichMovie(movie[0].title.replace(/ /g, ""))}
-
 class MoviesDisplay extends Component {
   constructor(props) {
     super(props);

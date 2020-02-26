@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NavBar from "./navbar";
-import {saveUser} from "./addUser";
+import { saveUser } from "./addUser";
 
 class Profile extends Component {
   constructor(props) {
@@ -23,7 +23,12 @@ class Profile extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    saveUser(this.state.username, this.state.password, this.state.firstName, this.state.lastName)
+    saveUser(
+      this.state.username,
+      this.state.password,
+      this.state.firstName,
+      this.state.lastName
+    );
   };
 
   render() {
@@ -36,7 +41,7 @@ class Profile extends Component {
               <input
                 type="text"
                 className="form-control"
-                placeholder="username"
+                placeholder="Username"
                 value={this.state.username}
                 onChange={this.handleInputChange}
                 name="username"
@@ -46,7 +51,7 @@ class Profile extends Component {
               <input
                 type="password"
                 className="form-control"
-                placeholder="password"
+                placeholder="Password"
                 value={this.state.password}
                 onChange={this.handleInputChange}
                 name="password"
@@ -77,7 +82,7 @@ class Profile extends Component {
           </div>
           <button type="submit" className="btn btn-warning">
             {" "}
-            submit{" "}
+            Submit{" "}
           </button>
         </form>
       </React.Fragment>

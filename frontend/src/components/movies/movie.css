@@ -1,28 +1,62 @@
-.movie {
-   width: 75%;
-   color: black;
-   background-color: blue;
-   border-style: solid;
-  margin-left: 10px;
+body {
+  background-color: #6b7d7d;
+}
 
+.movie {
+  width: 75%;
+  color: black;
+  background-color: #fcdebe;
+  border-style: solid;
+  border-radius: 2%;
+  margin-left: 10px;
+}
+
+.movieHeader {
+  background-color: #928779;
+  text-align: center;
+  padding: 5px;
+  color: white;
+  border-bottom: 4px solid black;
+  border-radius: 2%;
 }
 
 .title-year {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.title, .year {
-   font-weight: bold;
+.title,
+.year {
+  font-weight: bold;
+}
+
+.deleteButton {
+  display: inline;
+  background-color: black;
+  color: white;
+}
+
+.deleteButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.movieInfoContainer {
+  display: flex;
+}
+
+.movieImage {
+  text-align: center;
+}
+
+.movieInformation {
 }
 
 .poster {
-   border-radius: 5%;
-
+  border-radius: 5%;
 }
 
 .moviesContainer {
-
-
+  display: flex;
 }

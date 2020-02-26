@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { data } from "../../Backend/getMovies.js";
 import $ from "jquery";
 import "./movie.css";
+import { confirmDeletion } from "./deleteMovie.js";
 
 var displaymovies;
 
@@ -36,6 +37,12 @@ class MoviesDisplay extends Component {
           <div className="movie" key={index + movie[0].title}>
             <div className="movieHeader">
               <h1 className="title">{movie[0].title}</h1>
+              <button
+                className="deleteButton"
+                onClick={() => confirmDeletion(movie[0].title)}
+              >
+                DELETE
+              </button>
             </div>
             <div className="movieInfoContainer">
               <div className="movieImage">

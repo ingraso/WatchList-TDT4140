@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import NavBar from "./navbar";
 import { saveUser } from "./addUser";
 
 class Profile extends Component {
@@ -10,7 +9,7 @@ class Profile extends Component {
       lastName: "",
       username: "",
       password: "",
-      birtday: ""
+      birthday: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -36,7 +35,6 @@ class Profile extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavBar></NavBar>
         <form onSubmit={this.handleSubmit}>
           <div className="form-row">
             <div className="col">

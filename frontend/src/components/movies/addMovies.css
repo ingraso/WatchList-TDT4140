@@ -1,27 +1,26 @@
 body {
-    background-color: lightskyblue;
-    font-family: sans-serif;
+  background-color: lightskyblue;
+  font-family: sans-serif;
 }
-h1{
-    background-color: gray;
-    color:orange
+h1 {
+  background-color: gray;
+  color: orange;
 }
-.labelOne{
-    background-color: black;
-    color: white
-
+.labelOne {
+  background-color: black;
+  color: white;
 }
-.buttonTwo{
-    border: 1px solid black;
-    margin-top: 50px;
+.buttonTwo {
+  border: 1px solid black;
+  margin-top: 50px;
 }
-.buttonTwo:hover{
-    background-color: red
+.buttonTwo:hover {
+  background-color: red;
 }
-.director{  
-    width: 250px;
-    height: 30px;
-    margin-top: 20px;
-    margin-left: 5px;
+.director {
+  width: 250px;
+  height: 30px;
+  margin-top: 20px;
+  margin-left: 5px;
 }
-// duration, image url, score (num),title, description, releasedate
+/* duration, image url, score (num),title, description, releasedate*/

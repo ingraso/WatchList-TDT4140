@@ -4,6 +4,7 @@ import { getuser } from "./getuser";
 import { Redirect } from "react-router";
 import createHistory from "history/createBrowserHistory";
 import "./landingpage.css";
+import { testMe } from "./testFile";
 
 class Login extends Component {
   constructor(props) {
@@ -66,7 +67,9 @@ class Login extends Component {
               </div>
 
               <div className="nav-right">
-                <div className="nav-button">Sign up</div>
+                <div className="nav-button" onClick={testMe}>
+                  Sign up
+                </div>
                 <div className="nav-button">Log in</div>
               </div>
             </div>

@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { data } from "../../Backend/getMovies.js";
 import $ from "jquery";
 import "./movie.css";
-import { deleteMovie, whichMovie } from "./deleteMovie.js";
 
 var displaymovies;
-// onClick={deleteMovie(movieID)}
 
 class MoviesDisplay extends Component {
   constructor(props) {
@@ -38,12 +36,6 @@ class MoviesDisplay extends Component {
           <div className="movie" key={index + movie[0].title}>
             <div className="movieHeader">
               <h2 className="title">{movie[0].title}</h2>
-              <button
-                className="deleteButton"
-                onClick={whichMovie(movie[0].title.replace(/ /g, ""))}
-              >
-                DELETE
-              </button>
             </div>
             <div className="movieInfoContainer">
               <div className="movieImage">

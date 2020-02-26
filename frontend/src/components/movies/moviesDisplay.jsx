@@ -4,7 +4,6 @@ import $ from "jquery";
 import "./movie.css";
 
 var displaymovies;
-// onClick={deleteMovie(movieID)}
 
 class MoviesDisplay extends Component {
   constructor(props) {

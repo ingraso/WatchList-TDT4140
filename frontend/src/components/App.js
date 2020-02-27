@@ -1,6 +1,5 @@
 import React from "react";
-//import NavBar from "./navbar";
-import Profile from "./users/profile";
+import Profile from "./users/createUser/profile";
 import Login from "./users/login";
 import MoviesDisplay from "./movies/moviesDisplay";
 import "./app.css";

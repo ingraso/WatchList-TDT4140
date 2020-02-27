@@ -1,6 +1,6 @@
 import React from "react";
 //import NavBar from "./navbar";
-import Profile from "./users/profile";
+import Profile from "./users/createUser/profile";
 import Login from "./users/login";
 import Select from "./movies/index.js";
 import MoviesDisplay from "./movies/moviesDisplay";

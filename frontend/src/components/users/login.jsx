@@ -18,6 +18,9 @@ class Login extends Component {
       isadmin:false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+
+
+
   }
   handleInputChange = event => {
     const name = event.target.name;
@@ -26,6 +29,25 @@ class Login extends Component {
       [name]: value
     });
   };
+
+  handleloggedin() {
+
+      var logdetails =  localStorage.getItem('logdetails');
+      var admindetails =  localStorage.getItem('admindetails');
+
+        console.log(logdetails)
+        console.log(admindetails)
+    if (logdetails !== null) {
+      console.log("WORKS")
+        this.setState({loggedin: logdetails});
+        if (admindetails !== null) {
+          this.setState({isadmin: admindetails});
+        }
+    }
+  }
+  componentDidMount(){
+    this.handleloggedin()
+  }
 
   handleSubmit = event => {
     event.preventDefault();
@@ -45,9 +67,11 @@ class Login extends Component {
         console.log("logged in");
               console.log(result[0].admin);
           this.setState({loggedin: result[0].username});
+            localStorage.setItem('logdetails', result[0].username);
           if (result[0].admin == "1") {
             console.log("ADMIN")
             this.setState({isadmin: true});
+            localStorage.setItem('admindetails', true);
           }
           else {
               this.setState({isadmin: false });

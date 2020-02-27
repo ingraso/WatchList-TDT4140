@@ -9,7 +9,6 @@ function App() {
   return <React.Fragment>
   <BrowserRouter>
     <div>
-      <NavBar>
         <ul>
           <li className="nav-item">
             <Link to="/">Home</Link>
@@ -18,7 +17,6 @@ function App() {
             <Link to="/movies">Movies</Link>
           </li>
         </ul>
-      </NavBar>
       {/* A <Switch> looks through its children <Route>s and
           renders the first one that matches the current URL. */}
       <Switch>

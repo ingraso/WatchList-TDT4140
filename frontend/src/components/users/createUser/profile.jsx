@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { saveUser } from "./addUser";
+import { Link } from "react-router-dom";
 
 class Profile extends Component {
   constructor(props) {
@@ -35,6 +36,9 @@ class Profile extends Component {
   render() {
     return (
       <React.Fragment>
+        <li>
+        <Link to="/">Home</Link>
+      </li>
         <form onSubmit={this.handleSubmit}>
           <div className="form-row">
             <div className="col">

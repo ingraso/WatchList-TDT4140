@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import NavBar from "./navbar";
 import { saveUser } from "./addUser";
 
 class Profile extends Component {
@@ -9,7 +8,8 @@ class Profile extends Component {
       firstName: "",
       lastName: "",
       username: "",
-      password: ""
+      password: "",
+      birthday:""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -27,14 +27,14 @@ class Profile extends Component {
       this.state.username,
       this.state.password,
       this.state.firstName,
-      this.state.lastName
+      this.state.lastName,
+      this.state.birthday
     );
   };
 
   render() {
     return (
       <React.Fragment>
-        <NavBar></NavBar>
         <form onSubmit={this.handleSubmit}>
           <div className="form-row">
             <div className="col">
@@ -77,6 +77,21 @@ class Profile extends Component {
                 value={this.state.lastName}
                 onChange={this.handleInputChange}
                 name="lastName"
+              />
+            </div>
+          </div>
+          <div className="form-row">
+          <label className="ml-2">Date</label>
+          <div className="col">
+              <input
+                type="date"
+                name="birthday"
+                value="2000-01-01"
+                min="1900-01-01"
+                max="2020-01-01"
+                className="form-control"
+                value={this.state.birtday}
+                onChange={this.handleInputChange}
               />
             </div>
           </div>

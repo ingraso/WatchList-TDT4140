@@ -19,7 +19,8 @@ class Login extends Component {
       redirect:"",
       loggedin:"Guest",
       hideloggedin:true,
-      isadmin:false
+      isadmin:false,
+      isloggedin:false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSignout = this.handleSignout.bind(this);
@@ -39,6 +40,7 @@ class Login extends Component {
     if (logdetails !== null) {
         this.setState({loggedin: logdetails});
         this.setState({hideloggedin: false});
+              this.setState({isloggedin: true});
         if (admindetails !== null) {
           this.setState({isadmin: true});
           console.log(this.state.isadmin)
@@ -59,9 +61,12 @@ class Login extends Component {
       this.setState({loggedin: "Guest"});
       this.setState({hideloggedin: true});
         this.setState({isadmin: false});
+        this.setState({isloggedin: false});
+        window.location.reload();
   }
   fetchUsers = async () => {
     let response = await getuser();
+    var alertcounter = 0
     var result = Object.keys(response).map(function(key) {
       return [response[key]];
     });
@@ -73,6 +78,7 @@ class Login extends Component {
       ) {
           this.setState({loggedin: result[0].username});
             localStorage.setItem('logdetails', result[0].username);
+                this.setState({isloggedin: true});
           if (result[0].admin == "1") {
             this.setState({isadmin: true});
             localStorage.setItem('admindetails', true);
@@ -97,7 +103,7 @@ class Login extends Component {
                 <input className="nav-search-input" placeholder="Search" />
                 <button className="nav-search-button">Search</button>
               </div>
- {this.state.isadmin ?   <li>
+ {this.state.isloggedin ?   <li>
      <Link to="/addMovies">Add movies and series</Link>
    </li>: null }
               <div className="nav-center">

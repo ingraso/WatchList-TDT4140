@@ -59,4 +59,5 @@ body {
 
 .moviesContainer {
   display: flex;
+  max-width: 100%;
 }

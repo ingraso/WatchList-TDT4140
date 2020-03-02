@@ -2,7 +2,8 @@ import React from "react";
 //import NavBar from "./navbar";
 import Profile from "./users/createUser/profile";
 import Login from "./users/login";
-import Select from "./movies/index.js";
+//import Select from "./movies/index.js";
+import Select from "./movies/addMovieForm.jsx";
 import MoviesDisplay from "./movies/moviesDisplay";
 import "./app.css";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
@@ -24,7 +25,6 @@ function App() {
             </Route>
             <Route path="/">
               <Login></Login>
-
             </Route>
           </Switch>
         </div>

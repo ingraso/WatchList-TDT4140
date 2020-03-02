@@ -15,11 +15,11 @@ class Login extends Component {
       password: "",
       redirect:"",
       loggedin:"Guest",
+      hideloggedin:true,
       isadmin:false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
-
-
+    this.handleSignout = this.handleSignout.bind(this);
 
   }
   handleInputChange = event => {
@@ -31,15 +31,14 @@ class Login extends Component {
   };
 
   handleloggedin() {
-
       var logdetails =  localStorage.getItem('logdetails');
       var admindetails =  localStorage.getItem('admindetails');
-
         console.log(logdetails)
         console.log(admindetails)
     if (logdetails !== null) {
       console.log("WORKS")
         this.setState({loggedin: logdetails});
+        this.setState({hideloggedin: false});
         if (admindetails !== null) {
           this.setState({isadmin: admindetails});
         }
@@ -53,6 +52,14 @@ class Login extends Component {
     event.preventDefault();
     this.fetchUsers();
   };
+  handleSignout() {
+  localStorage.removeItem('logdetails');
+  localStorage.removeItem('admindetails');
+      console.log("WORKS")
+      this.setState({loggedin: "Guest"});
+      this.setState({hideloggedin: false});
+        this.setState({isadmin: false});
+  }
   fetchUsers = async () => {
     let response = await getuser();
     var result = Object.keys(response).map(function(key) {
@@ -102,41 +109,47 @@ class Login extends Component {
 
               <div className="nav-right">
                   <Link className="nav-button" to="/create">Create</Link>
-    <Popup  className="nav-button" trigger={<button> Log in</button>} position="right center">
-    <div className="Popup-holder">
-                <form onSubmit={this.handleSubmit}>
-                  <div className="form-row">
-                    <div className="col">
-                      Username:
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Your username"
-                        value={this.state.username}
-                        onChange={this.handleInputChange}
-                        name="username"
-                      />
-                    </div>
-                    <div className="col">
-                      Password:
-                      <input
-                        type="password"
-                        className="form-control"
-                        placeholder="Your password"
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                        name="password"
-                      />
-                    </div>
-                  </div>
+                  {this.state.hideloggedin ?
+                    <Popup  className="nav-button" trigger={<button> Log in</button>} position="right center">
+                    <div className="Popup-holder">
+                                <form onSubmit={this.handleSubmit}>
+                                  <div className="form-row">
+                                    <div className="col">
+                                      Username:
+                                      <input
+                                        type="text"
+                                        className="form-control"
+                                        placeholder="Your username"
+                                        value={this.state.username}
+                                        onChange={this.handleInputChange}
+                                        name="username"
+                                      />
+                                    </div>
+                                    <div className="col">
+                                      Password:
+                                      <input
+                                        type="password"
+                                        className="form-control"
+                                        placeholder="Your password"
+                                        value={this.state.password}
+                                        onChange={this.handleInputChange}
+                                        name="password"
+                                      />
+                                    </div>
+                                  </div>
 
-                  <button type="submit" className="btn btn-warning">
-                    {" "}
-                    Login{" "}
-                  </button>
-                </form>
-                </div>
- </Popup>
+                                  <button type="submit" className="btn btn-warning">
+                                    {" "}
+                                    Login{" "}
+                                  </button>
+                                </form>
+                                </div>
+                 </Popup>
+                  :       <button type="submit" className="btn btn-warning" onClick={this.handleSignout}>
+                          {" "}
+                          Sign out{" "}
+                        </button> }
+
               </div>
             </div>
 

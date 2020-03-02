@@ -36,7 +36,7 @@ class MoviesDisplay extends Component {
       .then(() => {
         this.setState({ list: result });
         displaymovies = this.state.list.map((movie, index) => (
-          <div className="movie" key={index + movie[0].title}>
+          <div  className="movie" key={index + movie[0].title}>
             <div className="movieHeader">
               <h1 className="title">{movie[0].title}</h1>
               { this.props.dataFromParent ?       <button

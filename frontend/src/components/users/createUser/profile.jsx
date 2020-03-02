@@ -25,6 +25,7 @@ class Profile extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    alert("You created a user!");
     saveUser(
       this.state.username,
       this.state.password,

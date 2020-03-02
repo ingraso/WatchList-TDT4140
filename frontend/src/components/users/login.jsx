@@ -6,6 +6,7 @@ import "./landingpage.css";
 import Popup from "reactjs-popup";
 import MoviesDisplay from "../movies/moviesDisplay";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import Profile from "./createUser/profile";
 
 class Login extends Component {
   constructor(props) {
@@ -108,9 +109,9 @@ class Login extends Component {
               </div>
 
               <div className="nav-right">
-                  <Link className="nav-button" to="/create">Create</Link>
+                  <Profile></Profile>
                   {this.state.hideloggedin ?
-                    <Popup  className="nav-button" trigger={<button> Log in</button>} position="right center">
+                    <Popup  className="nav-button" trigger={<button> Log in</button>} position="left top" contentStyle={{ width: "250px"}}>
                     <div className="Popup-holder">
                                 <form onSubmit={this.handleSubmit}>
                                   <div className="form-row">

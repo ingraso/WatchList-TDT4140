@@ -15,10 +15,11 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      redirect: "",
-      loggedin: "Guest",
-      hideloggedin: true,
-      isadmin: false
+      redirect:"",
+      loggedin:"Guest",
+      hideloggedin:true,
+      isadmin:false,
+      isloggedin:false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSignout = this.handleSignout.bind(this);
@@ -35,12 +36,13 @@ class Login extends Component {
     var logdetails = localStorage.getItem("logdetails");
     var admindetails = localStorage.getItem("admindetails");
     if (logdetails !== null) {
-      this.setState({ loggedin: logdetails });
-      this.setState({ hideloggedin: false });
-      if (admindetails !== null) {
-        this.setState({ isadmin: true });
-        console.log(this.state.isadmin);
-      }
+        this.setState({loggedin: logdetails});
+        this.setState({hideloggedin: false});
+              this.setState({isloggedin: true});
+        if (admindetails !== null) {
+          this.setState({isadmin: true});
+          console.log(this.state.isadmin)
+        }
     }
   }
   componentDidMount() {
@@ -52,14 +54,17 @@ class Login extends Component {
     this.fetchUsers();
   };
   handleSignout() {
-    localStorage.removeItem("logdetails");
-    localStorage.removeItem("admindetails");
-    this.setState({ loggedin: "Guest" });
-    this.setState({ hideloggedin: true });
-    this.setState({ isadmin: false });
+  localStorage.removeItem('logdetails');
+  localStorage.removeItem('admindetails');
+      this.setState({loggedin: "Guest"});
+      this.setState({hideloggedin: true});
+        this.setState({isadmin: false});
+        this.setState({isloggedin: false});
+        window.location.reload();
   }
   fetchUsers = async () => {
     let response = await getuser();
+    var alertcounter = 0
     var result = Object.keys(response).map(function(key) {
       return [response[key]];
     });
@@ -68,16 +73,18 @@ class Login extends Component {
         result[0].username === this.state.username &&
         result[0].password === this.state.password
       ) {
-        this.setState({ loggedin: result[0].username });
-        localStorage.setItem("logdetails", result[0].username);
-        if (result[0].admin == "1") {
-          this.setState({ isadmin: true });
-          localStorage.setItem("admindetails", true);
-          this.handleloggedin();
-        } else {
-          this.setState({ isadmin: false });
-          this.handleloggedin();
-        }
+          this.setState({loggedin: result[0].username});
+            localStorage.setItem('logdetails', result[0].username);
+                this.setState({isloggedin: true});
+          if (result[0].admin == "1") {
+            this.setState({isadmin: true});
+            localStorage.setItem('admindetails', true);
+              this.handleloggedin()
+          }
+          else {
+              this.setState({isadmin: false });
+                this.handleloggedin()
+          }
       }
     });
   };
@@ -92,11 +99,9 @@ class Login extends Component {
                 <input className="nav-search-input" placeholder="Search" />
                 <button className="nav-search-button">Search</button>
               </div>
-              {this.state.isadmin ? (
-                <li>
-                  <Link to="/addMovies">Add movies and series</Link>
-                </li>
-              ) : null}
+ {this.state.isloggedin ?   <li>
+     <Link to="/addMovies">Add movies and series</Link>
+   </li>: null }
               <div className="nav-center">
                 <div className="nav-logo">
                   <div>

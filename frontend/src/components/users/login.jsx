@@ -3,10 +3,12 @@ import $ from "jquery";
 import { getuser } from "./getuser";
 import { Redirect } from "react-router";
 import "./landingpage.css";
+import Logo from "./watchlistlogo.png";
 import Popup from "reactjs-popup";
 import MoviesDisplay from "../movies/moviesDisplay";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Profile from "./createUser/profile";
+
 
 class Login extends Component {
   constructor(props) {
@@ -34,14 +36,12 @@ class Login extends Component {
   handleloggedin() {
       var logdetails =  localStorage.getItem('logdetails');
       var admindetails =  localStorage.getItem('admindetails');
-        console.log(logdetails)
-        console.log(admindetails)
     if (logdetails !== null) {
-      console.log("WORKS")
         this.setState({loggedin: logdetails});
         this.setState({hideloggedin: false});
         if (admindetails !== null) {
-          this.setState({isadmin: admindetails});
+          this.setState({isadmin: true});
+          console.log(this.state.isadmin)
         }
     }
   }
@@ -56,9 +56,8 @@ class Login extends Component {
   handleSignout() {
   localStorage.removeItem('logdetails');
   localStorage.removeItem('admindetails');
-      console.log("WORKS")
       this.setState({loggedin: "Guest"});
-      this.setState({hideloggedin: false});
+      this.setState({hideloggedin: true});
         this.setState({isadmin: false});
   }
   fetchUsers = async () => {
@@ -72,17 +71,16 @@ class Login extends Component {
         result[0].username === this.state.username &&
         result[0].password === this.state.password
       ) {
-        console.log("logged in");
-              console.log(result[0].admin);
           this.setState({loggedin: result[0].username});
             localStorage.setItem('logdetails', result[0].username);
           if (result[0].admin == "1") {
-            console.log("ADMIN")
             this.setState({isadmin: true});
             localStorage.setItem('admindetails', true);
+              this.handleloggedin()
           }
           else {
               this.setState({isadmin: false });
+                this.handleloggedin()
           }
       }
     });
@@ -104,7 +102,7 @@ class Login extends Component {
    </li>: null }
               <div className="nav-center">
                 <div className="nav-logo">
-                  <h2> WatchList</h2>
+        <div>  <img width="300px" height="100px"src={Logo}/></div>
                 </div>
               </div>
 
@@ -164,7 +162,7 @@ class Login extends Component {
 
           <div></div>
         </div>
-    <MoviesDisplay></MoviesDisplay>
+    <MoviesDisplay dataFromParent = {this.state.isadmin}></MoviesDisplay>
       </div>
     );
   }

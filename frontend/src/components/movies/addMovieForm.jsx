@@ -11,11 +11,10 @@ class Select extends React.Component {
       title: "",
       director: "",
       duration: "",
-      description:"",
+      description: "",
       score: "1",
       imageUrl: "",
-      releaseDate: "",
-
+      releaseDate: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,13 +24,15 @@ class Select extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     alert(this.state.title + " was successfully added!");
-    console.log(      this.state.title,
-          this.state.director,
-          this.state.duration,
-          this.state.description,
-          this.state.score,
-          this.state.imageUrl,
-          this.state.releaseDate)
+    console.log(
+      this.state.title,
+      this.state.director,
+      this.state.duration,
+      this.state.description,
+      this.state.score,
+      this.state.imageUrl,
+      this.state.releaseDate
+    );
     saveMovie(
       this.state.title,
       this.state.director,
@@ -55,7 +56,7 @@ class Select extends React.Component {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <h1>Add a new movie or series</h1>
+        <h1 className="h1AddMovies">Add a new movie or series</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="form-row">
             <div className="col">

@@ -7,11 +7,11 @@ import $ from "jquery";
  * - add admin-only privileges for deletions
  */
 
-export function deleteMovie(movieID) {
+export function deleteMovie(movieTitle) {
   var settings = {
     url:
       "https://watchlistas.firebaseio.com/entertainment/movie/" +
-      movieID +
+      movieTitle +
       ".json?auth=qWIkHwOFG3EpS9gYCNP50tndNOFBS57ta41Rcy1f",
     method: "GET",
     timeout: 0,
@@ -23,7 +23,7 @@ export function deleteMovie(movieID) {
   $.ajax({
     url:
       "https://watchlistas.firebaseio.com/entertainment/movie/" +
-      movieID +
+      movieTitle +
       ".json?auth=qWIkHwOFG3EpS9gYCNP50tndNOFBS57ta41Rcy1f",
     type: "DELETE",
     success: function(response) {
@@ -39,10 +39,11 @@ export function confirmDeletion(movieTitle) {
   var confirmation = prompt(
     "Are you sure you want to delete " +
       movieTitle +
-      "?\nWrite the title of the movie again to confirm the deletion."
+      "?\nWrite DELETE to confirm the deletion."
   );
+  console.log(movieTitle.replace(/ /g, ""));
 
-  if (confirmation === movieTitle) {
-    deleteMovie(movieTitle.replace(/ /g, ""));
+  if (confirmation === "DELETE") {
+    deleteMovie(movieTitle);
   }
 }

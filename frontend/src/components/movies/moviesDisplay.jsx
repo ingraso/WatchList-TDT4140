@@ -49,7 +49,7 @@ class MoviesDisplay extends Component {
                 <img
                   width="200"
                   alt={`The movie titled: ${movie[0].title}`}
-                  src={movie[0].image}
+                  src={movie[0].imageUrl}
                 />
               </div>
 

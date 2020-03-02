@@ -9,13 +9,13 @@ class Select extends React.Component {
     super(props);
     this.state = {
       title: "",
-      category: "",
-      genre: "",
       director: "",
       duration: "",
-      score: "",
+      description:"",
+      score: "1",
       imageUrl: "",
-      releaseDate: ""
+      releaseDate: "",
+
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,12 +25,18 @@ class Select extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     alert(this.state.title + " was successfully added!");
+    console.log(      this.state.title,
+          this.state.director,
+          this.state.duration,
+          this.state.description,
+          this.state.score,
+          this.state.imageUrl,
+          this.state.releaseDate)
     saveMovie(
       this.state.title,
-      this.state.category,
-      this.state.genre,
       this.state.director,
       this.state.duration,
+      this.state.description,
       this.state.score,
       this.state.imageUrl,
       this.state.releaseDate
@@ -83,11 +89,11 @@ class Select extends React.Component {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Minutes"
-                name="minutes"
-                value={this.state.duration}
+                placeholder="Time"
                 onChange={this.handleChange}
-              ></input>
+                name="duration"
+                value={this.state.duration}
+              />
             </div>
           </div>
           <div className="form-row">
@@ -134,9 +140,9 @@ class Select extends React.Component {
                 type="text"
                 className="form-control"
                 placeholder="Paste Url"
-                name="url"
-                value={this.state.imageUrl}
                 onChange={this.handleChange}
+                name="imageUrl"
+                value={this.state.imageUrl}
               ></input>
             </div>
           </div>

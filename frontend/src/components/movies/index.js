@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./addMovies.css";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+//import { saveMovie } from "./addMovie.js";
 
 class Select extends React.Component {
   constructor(props) {
@@ -28,9 +29,9 @@ class Select extends React.Component {
   render() {
     return (
       <React.Fragment>
-      <li>
-        <Link to="/">Home</Link>
-      </li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
         <h1>Add a new movie or series</h1>
         <form onSubmit={this.handleSubmit}>
           <label>Title:</label>

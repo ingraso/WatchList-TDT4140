@@ -2,8 +2,8 @@ body {
   background-color: lightskyblue;
   font-family: sans-serif;
 }
-h1 {
-  background-color: gray;
+.h1AddMovies {
+  /*background-color: gray;*/
   color: orange;
 }
 .labelOne {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { saveUser } from "./addUser";
 import { Link } from "react-router-dom";
+import Popup from "reactjs-popup";
 
 class Profile extends Component {
   constructor(props) {
@@ -36,9 +37,7 @@ class Profile extends Component {
   render() {
     return (
       <React.Fragment>
-        <li>
-        <Link to="/">Home</Link>
-      </li>
+        <Popup  className="nav-button" trigger={<button> create</button>} position="left top" contentStyle={{ width: "500px"}}>
         <form onSubmit={this.handleSubmit}>
           <div className="form-row">
             <div className="col">
@@ -104,6 +103,7 @@ class Profile extends Component {
             Submit{" "}
           </button>
         </form>
+        </Popup>
       </React.Fragment>
     );
   }

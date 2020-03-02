@@ -7,12 +7,14 @@ import { confirmDeletion } from "./deleteMovie.js";
 var displaymovies;
 
 class MoviesDisplay extends Component {
-  constructor(props) {
-    super(props);
+  constructor(dataFromParent) {
+    super(dataFromParent);
     this.state = {
-      list: "a"
+      list: "",
+      displaydelete:dataFromParent,
     };
   }
+
 
   fetchData = async () => {
     var result;
@@ -37,12 +39,13 @@ class MoviesDisplay extends Component {
           <div className="movie" key={index + movie[0].title}>
             <div className="movieHeader">
               <h1 className="title">{movie[0].title}</h1>
-              <button
-                className="deleteButton"
-                onClick={() => confirmDeletion(movie[0].title)}
-              >
-                DELETE
-              </button>
+              { this.props.dataFromParent ?       <button
+                    className="deleteButton"
+                    onClick={() => confirmDeletion(movie[0].title)}
+                  >
+                    DELETE
+                  </button> : null }
+
             </div>
             <div className="movieInfoContainer">
               <div className="movieImage">
@@ -75,12 +78,13 @@ class MoviesDisplay extends Component {
         ));
 
         this.setState({ list: result });
-        console.log(this.state.list);
       });
   };
   componentDidMount() {
+    console.log(this.props.dataFromParent)
     this.fetchData();
   }
+
   render() {
     return (
       <div>

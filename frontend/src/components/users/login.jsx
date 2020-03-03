@@ -80,6 +80,7 @@ class Login extends Component {
             this.setState({isadmin: true});
             localStorage.setItem('admindetails', true);
               this.handleloggedin()
+                  window.location.reload();
           }
           else {
               this.setState({isadmin: false });
@@ -95,7 +96,7 @@ class Login extends Component {
           <div className="app-container">
             <div className="nav">
               <div className="nav-left">
-                <h1>Welcome {this.state.loggedin}! </h1>
+                <h1 className="Welcome">Welcome {this.state.loggedin}! </h1>
                 <input className="nav-search-input" placeholder="Search" />
                 <button className="nav-search-button">Search</button>
               </div>

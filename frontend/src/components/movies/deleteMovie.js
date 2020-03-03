@@ -28,6 +28,7 @@ export function deleteMovie(movieTitle) {
     type: "DELETE",
     success: function(response) {
       console.log("Movie deleted.");
+              window.location.reload();
     },
     error: function(repsonse) {
       console.log("Could not delete movie.");

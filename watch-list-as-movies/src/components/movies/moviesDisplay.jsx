@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { data } from "../../Backend/getMovies.js";
+import { data } from "../../Backend/movies/getMovies.js";
 import $ from "jquery";
 import "./movie.css";
 import { confirmDeletion } from "./deleteMovie.js";

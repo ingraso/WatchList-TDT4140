@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import $ from "jquery";
 import { getuser } from "./getuser";
 import { Redirect } from "react-router";
-import "./landingpage.css";
-import Logo from "./watchlistlogo.png";
+import "./../../app/landingpage.css";
+import Logo from "./../../app/watchlistlogo.png";
 import Popup from "reactjs-popup";
-import MoviesDisplay from "../movies/moviesDisplay";
+import MoviesDisplay from "../../movies/moviesDisplay";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import Profile from "./createUser/profile";
+import Profile from "../create/profile";
 
 class Login extends Component {
   constructor(props) {

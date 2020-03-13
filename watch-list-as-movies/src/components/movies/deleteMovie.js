@@ -2,11 +2,6 @@ import $ from "jquery";
 // To delete a movie, we have to GET it first,
 // then use the result to send a DELETE requests
 
-/* MISSING!!
- * - add some kind of rerendering(?) after a movie is removed from the database/deleted
- * - add admin-only privileges for deletions
- */
-
 export function deleteMovie(movieTitle) {
   var settings = {
     url:
@@ -28,7 +23,7 @@ export function deleteMovie(movieTitle) {
     type: "DELETE",
     success: function(response) {
       console.log("Movie deleted.");
-              window.location.reload();
+      window.location.reload();
     },
     error: function(repsonse) {
       console.log("Could not delete movie.");

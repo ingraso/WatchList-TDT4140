@@ -1,7 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import "./addMovies.css";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { saveMovie } from "./addMovie.js";
 
 class Select extends React.Component {

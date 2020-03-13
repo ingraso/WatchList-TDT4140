@@ -1,120 +1,113 @@
 .nav {
-    position: relative;
+  position: relative;
 
-    margin-top: 2rem;
-    width: 80vw;
-    padding: 2rem 0;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(233, 236, 236);
-    border-radius: 5px;
-    border: 1px solid rgb(211, 203, 203);
+  margin-top: 2rem;
+  width: 80vw;
+  padding: 2rem 0;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(233, 236, 236);
+  border-radius: 5px;
+  border: 1px solid rgb(211, 203, 203);
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .Welcome {
-    margin-left: 20px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Welcome {
+  margin-left: 20px;
+}
 
+.nav-right {
+  display: flex;
+  position: absolute;
+  right: 0;
+  height: 100%;
+}
+.Popup-holder {
+  color: black;
+}
 
-  .nav-right {
-    display: flex;
-    position: absolute;
-    right: 0;
-    height: 100%;
-  }
-  .Popup-holder {
-  color:black;
-  }
+.nav-button {
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  color: rgb(147, 147, 147);
+}
 
-  .nav-button {
-    height: 100%;
-    padding: 0 1rem;
-    display: flex;
-    align-items: center;
-    color: rgb(147, 147, 147);
-  }
+.nav-logo {
+  height: 100%;
+  padding: 1 5rem;
+  display: flex;
+  align-items: center;
+  color: rgb(7, 4, 4);
+}
 
+.nav-button:hover {
+  cursor: pointer;
+  background-color: rgb(226, 226, 226);
+}
 
-  .nav-logo{
-    height: 100%;
-    padding: 1 5rem;
-    display: flex;
-    align-items: center;
-    color: rgb(7, 4, 4);
-  }
+.nav-left {
+  position: absolute;
+  left: 0;
+}
 
-  .nav-button:hover {
-    cursor: pointer;
-    background-color: rgb(226, 226, 226);
-  }
+.nav-search-input {
+  margin-left: 1rem;
+  padding: 0.7rem;
+  border-radius: 2px;
+  border: 1px solid #cecece;
+}
 
-  .nav-left {
-    position: absolute;
-    left: 0;
-  }
+.nav-search-button {
+  padding: 0.7rem;
+  border-radius: 5px;
+  border: 1px solid #cecece;
+  margin-left: 5px;
+}
 
-  .nav-search-input{
-    margin-left: 1rem;
-    padding: 0.7rem;
-    border-radius: 2px;
-    border: 1px solid #CECECE;
-  }
+.movies {
+  position: flex;
+  margin-top: 3rem;
+  width: 80vw;
+  height: 100%;
 
-  .nav-search-button {
-    padding: 0.7rem;
-    border-radius: 5px;
-    border: 1px solid #CECECE;
-    margin-left: 5px;
-  }
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(243, 243, 243);
 
-  .movies{
-    position: flex;
-    margin-top: 3rem;
-    width: 80vw;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
 
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(243, 243, 243);
+.movies-right {
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  color: rgb(65, 63, 63);
+  right: 0;
+}
 
-    display: flex;
-    align-items: center;
-    justify-content: right;
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+}
 
-  }
+/* Clear floats after the columns */
+.row:after {
+  content: " Hello ";
+  display: table;
+  clear: both;
+}
 
-  .movies-right{
-    height: 100%;
-    padding: 0 1rem;
-    display: flex;
-    align-items: center;
-    color: rgb(65, 63, 63);
-    right: 0;
-  }
-
-
-
-  /* Create three equal columns that floats next to each other */
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media screen and (max-width: 600px) {
   .column {
-    float: left;
-    width: 33.33%;
-
+    width: 100%;
   }
-
-
-  /* Clear floats after the columns */
-  .row:after {
-    content: " Hello ";
-    display: table;
-    clear: both;
-  }
-
-  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
-  @media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-    }
-  }
+}

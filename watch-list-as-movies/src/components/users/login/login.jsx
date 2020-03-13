@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import $ from "jquery";
 import { getuser } from "./getuser";
-import { Redirect } from "react-router";
 import "./../../app/landingpage.css";
 import Logo from "./../../app/watchlistlogo.png";
 import Popup from "reactjs-popup";
 import MoviesDisplay from "../../movies/moviesDisplay";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Profile from "../create/profile";
 
 class Login extends Component {
@@ -15,11 +13,10 @@ class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      redirect:"",
-      loggedin:"Guest",
-      hideloggedin:true,
-      isadmin:false,
-      isloggedin:false
+      loggedin: "Guest",
+      hideloggedin: true,
+      isadmin: false,
+      isloggedin: false
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSignout = this.handleSignout.bind(this);
@@ -36,13 +33,13 @@ class Login extends Component {
     var logdetails = localStorage.getItem("logdetails");
     var admindetails = localStorage.getItem("admindetails");
     if (logdetails !== null) {
-        this.setState({loggedin: logdetails});
-        this.setState({hideloggedin: false});
-              this.setState({isloggedin: true});
-        if (admindetails !== null) {
-          this.setState({isadmin: true});
-          console.log(this.state.isadmin)
-        }
+      this.setState({ loggedin: logdetails });
+      this.setState({ hideloggedin: false });
+      this.setState({ isloggedin: true });
+      if (admindetails !== null) {
+        this.setState({ isadmin: true });
+        console.log(this.state.isadmin);
+      }
     }
   }
   componentDidMount() {
@@ -54,17 +51,16 @@ class Login extends Component {
     this.fetchUsers();
   };
   handleSignout() {
-  localStorage.removeItem('logdetails');
-  localStorage.removeItem('admindetails');
-      this.setState({loggedin: "Guest"});
-      this.setState({hideloggedin: true});
-        this.setState({isadmin: false});
-        this.setState({isloggedin: false});
-        window.location.reload();
+    localStorage.removeItem("logdetails");
+    localStorage.removeItem("admindetails");
+    this.setState({ loggedin: "Guest" });
+    this.setState({ hideloggedin: true });
+    this.setState({ isadmin: false });
+    this.setState({ isloggedin: false });
+    window.location.reload();
   }
   fetchUsers = async () => {
     let response = await getuser();
-    var alertcounter = 0
     var result = Object.keys(response).map(function(key) {
       return [response[key]];
     });
@@ -73,19 +69,18 @@ class Login extends Component {
         result[0].username === this.state.username &&
         result[0].password === this.state.password
       ) {
-          this.setState({loggedin: result[0].username});
-            localStorage.setItem('logdetails', result[0].username);
-                this.setState({isloggedin: true});
-          if (result[0].admin == "1") {
-            this.setState({isadmin: true});
-            localStorage.setItem('admindetails', true);
-              this.handleloggedin()
-                  window.location.reload();
-          }
-          else {
-              this.setState({isadmin: false });
-                this.handleloggedin()
-          }
+        this.setState({ loggedin: result[0].username });
+        localStorage.setItem("logdetails", result[0].username);
+        this.setState({ isloggedin: true });
+        if (result[0].admin === "1") {
+          this.setState({ isadmin: true });
+          localStorage.setItem("admindetails", true);
+          this.handleloggedin();
+          window.location.reload();
+        } else {
+          this.setState({ isadmin: false });
+          this.handleloggedin();
+        }
       }
     });
   };
@@ -100,14 +95,21 @@ class Login extends Component {
                 <input className="nav-search-input" placeholder="Search" />
                 <button className="nav-search-button">Search</button>
               </div>
- {this.state.isloggedin ?   <li>
-     <Link to="/addMovies">Add movies and series</Link>
-   </li>: null }
+              {this.state.isloggedin ? (
+                <li>
+                  <Link to="/addMovies">Add movies and series</Link>
+                </li>
+              ) : null}
               <div className="nav-center">
                 <div className="nav-logo">
                   <div>
                     {" "}
-                    <img width="300px" height="100px" src={Logo} />
+                    <img
+                      width="300px"
+                      height="100px"
+                      alt="Watchlist AS logo"
+                      src={Logo}
+                    />
                   </div>
                 </div>
               </div>

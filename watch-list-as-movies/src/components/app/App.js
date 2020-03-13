@@ -1,11 +1,10 @@
 import React from "react";
 import Profile from "../users/create/profile";
 import Login from "../users/login/login";
-//import Select from "./movies/index.js";
 import Select from "./../movies/addMovieForm.jsx";
 import MoviesDisplay from "./../movies/moviesDisplay";
 import "./app.css";
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function App() {
   return (

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { data } from "../../Backend/movies/getMovies.js";
 import $ from "jquery";
 import "./movie.css";
 import { confirmDeletion } from "./deleteMovie.js";
@@ -11,10 +10,9 @@ class MoviesDisplay extends Component {
     super(dataFromParent);
     this.state = {
       list: "",
-      displaydelete:dataFromParent,
+      displaydelete: dataFromParent
     };
   }
-
 
   fetchData = async () => {
     var result;
@@ -36,16 +34,17 @@ class MoviesDisplay extends Component {
       .then(() => {
         this.setState({ list: result });
         displaymovies = this.state.list.map((movie, index) => (
-          <div  className="movie" key={index + movie[0].title}>
+          <div className="movie" key={index + movie[0].title}>
             <div className="movieHeader">
               <h1 className="title">{movie[0].title}</h1>
-              { this.props.dataFromParent ?       <button
-                    className="deleteButton"
-                    onClick={() => confirmDeletion(movie[0].title)}
-                  >
-                    DELETE
-                  </button> : null }
-
+              {this.props.dataFromParent ? (
+                <button
+                  className="deleteButton"
+                  onClick={() => confirmDeletion(movie[0].title)}
+                >
+                  DELETE
+                </button>
+              ) : null}
             </div>
             <div className="movieInfoContainer">
               <div className="movieImage">
@@ -81,7 +80,7 @@ class MoviesDisplay extends Component {
       });
   };
   componentDidMount() {
-    console.log(this.props.dataFromParent)
+    console.log(this.props.dataFromParent);
     this.fetchData();
   }
 

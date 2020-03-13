@@ -1,6 +1,14 @@
 import $ from "jquery";
 
-export function saveMovie(title, director, duration, description, score, imageUrl,releaseDate) {
+export function saveMovie(
+  title,
+  director,
+  duration,
+  description,
+  score,
+  imageUrl,
+  releaseDate
+) {
   $(document).ready(function() {
     var param = {
       title: title,
@@ -9,7 +17,7 @@ export function saveMovie(title, director, duration, description, score, imageUr
       description: description,
       score: score,
       imageUrl: imageUrl,
-      releaseDate: releaseDate,
+      releaseDate: releaseDate
     };
 
     $.ajax({

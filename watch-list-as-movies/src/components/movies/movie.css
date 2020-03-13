@@ -8,7 +8,7 @@ body {
   background-color: #fcdebe;
   border-style: solid;
   border-radius: 2%;
-  margin:10px;
+  margin: 10px;
 }
 
 .movieHeader {
@@ -59,7 +59,6 @@ body {
 
 .moviesContainer {
   display: flex;
-   flex-wrap: wrap;
+  flex-wrap: wrap;
   max-width: 100%;
-
 }

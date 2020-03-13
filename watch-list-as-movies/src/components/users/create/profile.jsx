@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { saveUser } from "./../../../Backend/user/addUser";
-import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 
 class Profile extends Component {
@@ -99,7 +98,7 @@ class Profile extends Component {
                   min="1900-01-01"
                   max="2020-01-01"
                   className="form-control"
-                  value={this.state.birtday}
+                  value={this.state.birthday}
                   onChange={this.handleInputChange}
                 />
               </div>

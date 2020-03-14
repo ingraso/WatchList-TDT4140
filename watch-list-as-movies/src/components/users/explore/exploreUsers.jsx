@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
+import "./explore.css";
 
 var displayUsers;
 
@@ -33,12 +34,23 @@ class DisplayUsers extends Component {
         this.setState({ listOfUsers: users });
         displayUsers = this.state.listOfUsers.map((user, index) => (
           <div className="user" key={index + user[0].username}>
-            <div>
-              <h4>{user[0].username}</h4>
-            </div>
-            <div>
-              <h6></h6>
-            </div>
+            <table className = "userTable"> 
+              <tr>
+              <td>
+                  <img src={user[0].imageUrl} width="50">
+                  </img>
+                </td>
+                <td>
+                Username: {user[0].username}
+                </td>
+                <td>
+                First name:{user[0].firstName}
+                </td>
+                <td>
+                Last Name:{user[0].lastName}
+                </td>
+              </tr>
+            </table>
           </div>
         ));
         this.setState({ listOfUsers: users });

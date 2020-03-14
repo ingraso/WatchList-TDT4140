@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+  import React, { Component } from "react";
 import $ from "jquery";
 import "./movie.css";
 import { confirmDeletion } from "./deleteMovie.js";
-
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 var displaymovies;
 
 class MoviesDisplay extends Component {
@@ -54,7 +54,15 @@ class MoviesDisplay extends Component {
                   src={movie[0].imageUrl}
                 />
               </div>
+              <li>
+                <Link to={{
+                  pathname: '/movies/'+movie[0].title,
+                  state: {
+                    title: movie[0].title,
+                  }
 
+                }}>Review</Link>
+              </li>
               <div className="movieInformation">
                 <p>
                   <b>Directed by:</b> {movie[0].director} <br></br>

@@ -96,9 +96,14 @@ class Login extends Component {
                 <button className="nav-search-button">Search</button>
               </div>
               {this.state.isloggedin ? (
-                <li>
-                  <Link to="/addMovies">Add movies and series</Link>
-                </li>
+                <div>
+                  <li>
+                    <Link to="/addMovies">Add movies and series</Link>
+                  </li>
+                  <li>
+                    <Link to="/exploreUsers">Explore other users</Link>
+                  </li>
+                </div>
               ) : null}
               <div className="nav-center">
                 <div className="nav-logo">

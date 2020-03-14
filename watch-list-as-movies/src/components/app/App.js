@@ -1,6 +1,7 @@
 import React from "react";
 import Profile from "../users/create/profile";
 import Login from "../users/login/login";
+import DisplayUsers from "../users/explore/exploreUsers";
 import Select from "./../movies/addMovieForm.jsx";
 import MoviesDisplay from "./../movies/moviesDisplay";
 import "./app.css";
@@ -17,6 +18,9 @@ function App() {
             </Route>
             <Route path="/addMovies">
               <Select></Select>
+            </Route>
+            <Route path="/exploreUsers">
+              <DisplayUsers></DisplayUsers>
             </Route>
             <Route path="/create">
               <Profile></Profile>

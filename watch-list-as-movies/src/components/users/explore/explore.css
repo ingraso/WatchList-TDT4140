@@ -1,7 +1,12 @@
-.userTable{
-    border-collapse: collapse;
+.userTable {
+  border-collapse: collapse;
 }
-.userTable td{
-    padding: 8px;
-    border: 1px solid black;
+.userTable td {
+  padding: 8px;
+  border: 1px solid black;
+  width: 200px;
+}
+
+.userTable td:first-child  {
+  background-color: blue;
 }

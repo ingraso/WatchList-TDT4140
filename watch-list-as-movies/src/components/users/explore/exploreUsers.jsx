@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
+import { Link } from "react-router-dom";
 import "./explore.css";
 
 var displayUsers;
@@ -33,25 +34,14 @@ class DisplayUsers extends Component {
       .then(() => {
         this.setState({ listOfUsers: users });
         displayUsers = this.state.listOfUsers.map((user, index) => (
-          <div className="user" key={index + user[0].username}>
-            <table className = "userTable"> 
-              <tr>
-              <td>
-                  <img src={user[0].imageUrl} width="50">
-                  </img>
-                </td>
-                <td>
-                Username: {user[0].username}
-                </td>
-                <td>
-                First name:{user[0].firstName}
-                </td>
-                <td>
-                Last Name:{user[0].lastName}
-                </td>
-              </tr>
-            </table>
-          </div>
+          <tr key={index + user[0].username}>
+            <td className="row">
+              <img src={user[0].imageUrl} width="50" alt="Profile img" />
+            </td>
+            <td>{user[0].username}</td>
+            <td>{user[0].firstName}</td>
+            <td>{user[0].lastName}</td>
+          </tr>
         ));
         this.setState({ listOfUsers: users });
       });
@@ -63,7 +53,21 @@ class DisplayUsers extends Component {
   render() {
     return (
       <div>
-        <div className="usersContainer">{displayUsers}</div>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <table className="table table-striped table-dark">
+          <caption>List of users</caption>
+          <thead>
+            <tr>
+              <th>Profile picture</th>
+              <th>Username</th>
+              <th>First name</th>
+              <th>Last name</th>
+            </tr>
+          </thead>
+          <tbody>{displayUsers}</tbody>
+        </table>
       </div>
     );
   }

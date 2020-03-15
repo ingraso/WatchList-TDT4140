@@ -72,7 +72,7 @@ class Login extends Component {
         this.setState({ loggedin: result[0].username });
         localStorage.setItem("logdetails", result[0].username);
         this.setState({ isloggedin: true });
-        if (result[0].admin === "1") {
+        if (result[0].admin === 1) {
           this.setState({ isadmin: true });
           localStorage.setItem("admindetails", true);
           this.handleloggedin();

@@ -6,6 +6,7 @@ var users
 function SpecificUser(){
   const location = useLocation();
   const myHookValue = location.state.username
+
       return <MyDiv myHookValue={myHookValue} />;
 
 }
@@ -14,7 +15,7 @@ class MyDiv extends React.Component {
     super(myHookValue);
     this.state = {
       username: myHookValue.myHookValue,
-      firstName: "a",
+      firstName: "",
       lastName: "",
       imageUrl: "",
     };
@@ -34,15 +35,13 @@ fetchData = async () => {
      const fetchedData = $.ajax(settings)
        .then(function(response) {
          result = Object.keys(response).map(function(key) {
-           return [response[key]];
+                return [response[key]];
          });
        })
        .then(() => {
-         console.log(result[0][0])
   var result1 = Object.keys(result[0][0]).map(function(key) {
     return [(key)];
   });
-console.log(result1[0][0])
 users = this.state.list.map((user,index)=>(
 <div>
     {user}
@@ -59,32 +58,32 @@ this.setState({ list:result1});
 }
 componentDidMount(){
     this.fetchData();
-    console.log("Hello:)");
+    console.log(this.state.imageUrl);
 }
   render(){
     return(<div>
                 <li><Link to="/">Home</Link></li>
-<h1>{this.state.firstName}</h1>
-<h1>{this.state.lastName}</h1>
-<img
+                <img
   width="200"
   alt={`User name: ${this.state.username}`}
   src={this.state.imageUrl}
 />
-
-<h1>User</h1>
-<li>{users} </li>
-
-
-
-
+<h1>{this.state.username}</h1>
+<h1>firstName</h1>
+<h1>lastName</h1>
+<li>{users}</li>
+<button className="btn btn-primary" onClick={()=>alert("Not developed yet :/")}>
+    Send Message
+</button>
+<br>
+</br>
+<br>
+</br>
+<button className="btn btn-primary" onClick={()=>alert("To be developed")}>
+    Follow
+</button>
 </div>
-
-
     )
   }
 }
-
-
-
 export default SpecificUser;

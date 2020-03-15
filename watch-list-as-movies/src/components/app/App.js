@@ -6,6 +6,7 @@ import Select from "./../movies/addMovieForm.jsx";
 import MoviesDisplay from "./../movies/moviesDisplay";
 import "./app.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import SpecificUser from "../users/explore/specificUser";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
             </Route>
             <Route path="/exploreUsers">
               <DisplayUsers></DisplayUsers>
+            </Route>
+            <Route path="/users/:user">
+              <SpecificUser></SpecificUser>
             </Route>
             <Route path="/create">
               <Profile></Profile>

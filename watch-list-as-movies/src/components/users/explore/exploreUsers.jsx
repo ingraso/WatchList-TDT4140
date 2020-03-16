@@ -35,7 +35,7 @@ class DisplayUsers extends Component {
         this.setState({ listOfUsers: users });
         displayUsers = this.state.listOfUsers.map((user, index) => (
           <tr key={index + user[0].username}>
-            <td className="row">
+            <td className="row" id="row">
               <img src={user[0].imageUrl} width="50" alt="Profile img" />
             </td>
             <td>{user[0].username}</td>

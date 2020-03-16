@@ -3,46 +3,25 @@ import { Link } from "react-router-dom";
 import "./aside.css";
 
 class Aside extends React.Component {
-  constructor(username) {
-    super(username);
+  constructor() {
+    super();
     this.state = {
-      uName: username
+      uName: "<Username>"
     };
   }
   render() {
     return (
       <div className="aside">
-        <h4>{this.state.uName}</h4>
-        <li>
+        <img src="" alt="Profile pic"></img>
+        <h5>{this.state.uName}</h5>
+
+        <span>
           <Link to="/addMovies">Add movies and series</Link>
-        </li>
-        <li>
+        </span>
+        <br></br>
+        <span>
           <Link to="/exploreUsers">Explore other users</Link>
-        </li>
-        <li>
-          <Link to="/exploreUsers">Explore other users</Link>
-        </li>
-        <li>
-          <Link to="/exploreUsers">Explore other users</Link>
-        </li>
-        <li>
-          <Link to="/exploreUsers">Explore other users</Link>
-        </li>
-        <li>
-          <Link to="/exploreUsers">Explore other users</Link>
-        </li>
-        <li>
-          <Link to="/exploreUsers">Explore other users</Link>
-        </li>
-        <li>
-          <Link to="/exploreUsers">Explore other users</Link>
-        </li>
-        <li>
-          <Link to="/exploreUsers">Explore other users</Link>
-        </li>
-        <li>
-          <Link to="/exploreUsers">Explore other users</Link>
-        </li>
+        </span>
       </div>
     );
   }

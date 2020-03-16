@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import { Link } from "react-router-dom";
-import "./explore.css";
 
 var displayUsers;
 
@@ -38,7 +37,18 @@ class DisplayUsers extends Component {
             <td className="row">
               <img src={user[0].imageUrl} width="50" alt="Profile img" />
             </td>
-            <td>{user[0].username}</td>
+            <td>
+              <Link
+                to={{
+                  pathname: "/users/" + user[0].username,
+                  state: {
+                    username: user[0].username
+                  }
+                }}
+              >
+                user
+              </Link>
+            </td>
             <td>{user[0].firstName}</td>
             <td>{user[0].lastName}</td>
           </tr>

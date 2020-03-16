@@ -3,13 +3,15 @@ import $ from "jquery";
 export function saveReview(
   title,
   review,
-  reviewer
+  reviewer,
+  score
 ) {
   $(document).ready(function() {
     var param = {
       title: title,
       review: review,
-      reviewer: reviewer
+      reviewer: reviewer,
+      score: score,
     };
 
     $.ajax({

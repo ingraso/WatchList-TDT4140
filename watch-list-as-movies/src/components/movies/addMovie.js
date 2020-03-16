@@ -1,4 +1,5 @@
 import $ from "jquery";
+import { saveReview } from "./addReview.js";
 
 export function saveMovie(
   title,
@@ -19,7 +20,12 @@ export function saveMovie(
       imageUrl: imageUrl,
       releaseDate: releaseDate
     };
-
+    saveReview(
+      title,
+      "Really liked it",
+      director,
+      score,
+    );
     $.ajax({
       url:
         "https://watchlistas.firebaseio.com/entertainment/movie/" +

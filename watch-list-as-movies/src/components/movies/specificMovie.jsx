@@ -20,6 +20,7 @@ class MyDiv extends React.Component {
       image: "",
       review: "",
       reviewer: "",
+      score: "1",
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -30,6 +31,7 @@ class MyDiv extends React.Component {
       this.state.title,
       this.state.review,
       this.state.reviewer,
+      this.state.score,
     );
   };
   handleChange = event => {
@@ -66,16 +68,19 @@ fetchData = async () => {
            return [(key), result[0][0][key]];
          });
 
-
+console.log(revi)
     this.setState({ list: revi });
 reviews = this.state.list.map((review, index) => (
 <div>
-<h1>{review[0]}</h1>
-<p>{review[1]}</p>
+<h1>Reviewed by: {review[1].reviewer}</h1>
+<p>{review[1].review}</p>
+<p>Score: {review[1].score}</p>
 </div>
 
 
 ));
+
+
 console.log("Finished")
   this.setState({ list: revi });
    })
@@ -101,6 +106,7 @@ componentDidMount(){
 <div>{reviews} </div>
 
 
+
 <div>
 <form onSubmit={this.handleSubmit}>
   <div className="form-row">
@@ -116,7 +122,30 @@ componentDidMount(){
       />
     </div>
   </div>
-
+  <div className="form-row">
+    <div className="col">
+      <label className="labelThree">
+        Score:
+        <select
+          type="text"
+          name="score"
+          value={this.state.score}
+          onChange={this.handleChange}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </label>
+    </div>
+  </div>
 
 
   <input type="submit" className="btn btn-warning" value="Submit" />

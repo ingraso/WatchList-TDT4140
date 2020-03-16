@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+  import React, { Component } from "react";
 import $ from "jquery";
 import "./movie.css";
 import { confirmDeletion } from "./deleteMovie.js";
-
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 var displaymovies;
 
 class MoviesDisplay extends Component {
@@ -54,21 +54,25 @@ class MoviesDisplay extends Component {
                   src={movie[0].imageUrl}
                 />
               </div>
+              <li>
+                <Link to={{
+                  pathname: '/movies/'+movie[0].title,
+                  state: {
+                    title: movie[0].title,
+                  }
 
+                }}>Review</Link>
+              </li>
               <div className="movieInformation">
                 <p>
                   <b>Directed by:</b> {movie[0].director} <br></br>
                   <b>Duration:</b> {movie[0].duration} <br></br>
                   <b>Score:</b> {movie[0].score} <br></br>
                   <p>
-                    <b>Description placeholder text:</b> Lorem Ipsum is simply
-                    dummy text of the printing and typesetting industry. Lorem
-                    Ipsum has been the industry's standard dummy text ever since
-                    the 1500s, when an unknown printer took a galley of type and
-                    scrambled it to make a type specimen book. It has survived
-                    not only five centuries, but also the leap into electronic
-                    typesetting, remaining essentially unchanged. It was
-                    popularised in the 1960s with the{" "}
+                    <b>Description placeholder text:</b>{" "}
+                    {movie[0].description
+                      ? movie[0].description
+                      : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but "}
                   </p>
                 </p>
               </div>

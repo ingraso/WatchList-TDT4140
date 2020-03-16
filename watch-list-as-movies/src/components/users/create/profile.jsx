@@ -10,6 +10,7 @@ class Profile extends Component {
       lastName: "",
       username: "",
       password: "",
+      imageUrl: "",
       birthday: ""
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -30,6 +31,7 @@ class Profile extends Component {
       this.state.password,
       this.state.firstName,
       this.state.lastName,
+      this.state.imageUrl,
       this.state.birthday
     );
   };
@@ -88,6 +90,18 @@ class Profile extends Component {
                 />
               </div>
             </div>
+            <div className="form-row">
+            <div className="col">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Paste image URL"
+                onChange={this.handleInputChange}
+                name="imageUrl"
+                value={this.state.imageUrl}
+              ></input>
+            </div>
+          </div>
             <div className="form-row">
               <label className="ml-2">Date</label>
               <div className="col">

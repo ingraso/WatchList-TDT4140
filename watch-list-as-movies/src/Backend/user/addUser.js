@@ -1,12 +1,13 @@
 import $ from "jquery";
 
-export function saveUser(username, password, firstName, lastName, birthday) {
+export function saveUser(username, password, firstName, lastName,imageUrl, birthday) {
   $(document).ready(function() {
     var param = {
       username: username,
       firstName: firstName,
       lastName: lastName,
       birthday: birthday,
+      imageUrl: imageUrl,
       password: password
     };
 

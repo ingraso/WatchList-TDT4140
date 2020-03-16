@@ -6,6 +6,7 @@ import Popup from "reactjs-popup";
 import MoviesDisplay from "../../movies/moviesDisplay";
 import { Link } from "react-router-dom";
 import Profile from "../create/profile";
+import Aside from "../../aside/aside";
 
 class Login extends Component {
   constructor(props) {
@@ -95,16 +96,7 @@ class Login extends Component {
                 <input className="nav-search-input" placeholder="Search" />
                 <button className="nav-search-button">Search</button>
               </div>
-              {this.state.isloggedin ? (
-                <div>
-                  <li>
-                    <Link to="/addMovies">Add movies and series</Link>
-                  </li>
-                  <li>
-                    <Link to="/exploreUsers">Explore other users</Link>
-                  </li>
-                </div>
-              ) : null}
+
               <div className="nav-center">
                 <div className="nav-logo">
                   <div>
@@ -179,10 +171,14 @@ class Login extends Component {
               <div className="movies-right"> </div>
             </div>
           </div>
-
-          <div></div>
         </div>
-        <MoviesDisplay dataFromParent={this.state.isadmin}></MoviesDisplay>
+        <div className="content">
+          <div>
+            {this.state.isloggedin ? <Aside username="h"></Aside> : null}
+          </div>
+
+          <MoviesDisplay dataFromParent={this.state.isadmin}></MoviesDisplay>
+        </div>
       </div>
     );
   }

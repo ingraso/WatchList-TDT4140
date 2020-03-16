@@ -80,7 +80,7 @@ class MoviesDisplay extends Component {
       });
   };
   componentDidMount() {
-    console.log(this.props.dataFromParent);
+    //console.log(this.props.dataFromParent);
     this.fetchData();
   }
 

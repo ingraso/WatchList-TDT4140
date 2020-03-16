@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import $ from "jquery";
 import { Link, useLocation } from "react-router-dom";
 var users;
+var mywatchlist;
 function SpecificUser() {
   const location = useLocation();
   const myHookValue = location.state.username;
@@ -40,16 +41,29 @@ class MyDiv extends React.Component {
         });
       })
       .then(() => {
+  console.log(result[6])
         var result1 = Object.keys(result[0][0]).map(function(key) {
           return [key];
         });
-        users = this.state.list.map((user, index) => <div>{user}</div>);
+        var watchlist = Object.keys(result[6][0]).map(function(key) {
+        return [(key), result[6][key]];
+        });
+
+
+        this.setState({ list1: watchlist });
+    mywatchlist = this.state.list1.map((review, index) => (
+<h3>{review[0]}</h3>
+    ));
+    console.log(mywatchlist)
+
         this.setState({ list: result1 });
         this.setState({
           firstName: result[2],
           lastName: result[3],
           imageUrl: result[4]
         });
+
+
       });
   };
   componentDidMount() {
@@ -69,7 +83,6 @@ class MyDiv extends React.Component {
         <h1>{this.state.username}</h1>
         <h1>firstName</h1>
         <h1>lastName</h1>
-        <li>{users}</li>
         <button
           className="btn btn-primary"
           onClick={() => alert("Not developed yet :/")}
@@ -84,6 +97,9 @@ class MyDiv extends React.Component {
         >
           Follow
         </button>
+        <div>
+        {mywatchlist} + test
+        </div>
       </div>
     );
   }

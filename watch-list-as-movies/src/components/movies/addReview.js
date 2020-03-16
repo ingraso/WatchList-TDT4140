@@ -1,35 +1,23 @@
 import $ from "jquery";
-import { saveReview } from "./addReview.js";
 
-export function saveMovie(
+export function saveReview(
   title,
-  director,
-  duration,
-  description,
-  score,
-  imageUrl,
-  releaseDate
+  review,
+  reviewer,
+  score
 ) {
   $(document).ready(function() {
     var param = {
       title: title,
-      director: director,
-      duration: duration,
-      description: description,
+      review: review,
+      reviewer: reviewer,
       score: score,
-      imageUrl: imageUrl,
-      releaseDate: releaseDate
     };
-    saveReview(
-      title,
-      "Really liked it",
-      director,
-      score,
-    );
+
     $.ajax({
       url:
         "https://watchlistas.firebaseio.com/entertainment/movie/" +
-        title +
+        title +"/Reviews/"+reviewer+
         ".json?auth=qWIkHwOFG3EpS9gYCNP50tndNOFBS57ta41Rcy1f",
       type: "PUT",
       data: JSON.stringify(param),

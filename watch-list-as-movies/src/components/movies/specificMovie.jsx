@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import $ from "jquery";
 import "./movie.css";
 import {  Link, useLocation } from "react-router-dom";
+import { saveReview } from "./addReview.js";
 var reviews
 function SpecificMovie(){
   const location = useLocation();
@@ -17,11 +18,28 @@ class MyDiv extends React.Component {
       director: "a",
       duration: "",
       image: "",
+      review: "",
+      reviewer: "",
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-
+  handleSubmit = event => {
+    event.preventDefault();
+    saveReview(
+      this.state.title,
+      this.state.review,
+      this.state.reviewer,
+    );
+  };
+  handleChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({ [name]: value });
+  };
 fetchData = async () => {
   var result;
+
      var settings = {
        url:
          "https://watchlistas.firebaseio.com/entertainment/movie/"+this.state.title+".json?auth=qWIkHwOFG3EpS9gYCNP50tndNOFBS57ta41Rcy1f",
@@ -38,29 +56,35 @@ fetchData = async () => {
          });
        })
        .then(() => {
-         console.log(result[0][0])
-  var result1 = Object.keys(result[0][0]).map(function(key) {
-    return [(key)];
-  });
-console.log(result1[0][0])
+
+         this.setState({
+           director: result[2],
+           duration: result[3],
+           image: result[4],
+         });
+         var revi = Object.keys(result[0][0]).map(function(key) {
+           return [(key), result[0][0][key]];
+         });
 
 
-
-  this.setState({ list:result1});
+    this.setState({ list: revi });
 reviews = this.state.list.map((review, index) => (
+<div>
+<h1>{review[0]}</h1>
+<p>{review[1]}</p>
+</div>
 
- <div>{review} </div>
 
 ));
-              this.setState({
-                director: result[2],
-                duration: result[3],
-                image: result[4],
-              });
+console.log("Finished")
+  this.setState({ list: revi });
    })
 }
 componentDidMount(){
     this.fetchData();
+        var logdetails = localStorage.getItem("logdetails");
+        console.log(logdetails)
+      this.setState({ reviewer: logdetails });
 }
   render(){
     return(<div>
@@ -73,11 +97,31 @@ componentDidMount(){
   src={this.state.image}
 />
 
-<h1>Reviews </h1>
-<li>{reviews} </li>
+<h1>Reviews:</h1>
+<div>{reviews} </div>
+
+
+<div>
+<form onSubmit={this.handleSubmit}>
+  <div className="form-row">
+    <div className="col">
+      <label>Skriv din egen anmeldelse</label>
+      <input
+        type="text"
+        className="form-control"
+        placeholder="Write the title of the movie"
+        onChange={this.handleChange}
+        name="review"
+        value={this.state.review}
+      />
+    </div>
+  </div>
 
 
 
+  <input type="submit" className="btn btn-warning" value="Submit" />
+</form>
+</div>
 
 </div>
 

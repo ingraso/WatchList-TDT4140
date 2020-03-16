@@ -2,9 +2,10 @@
 import $ from "jquery";
 import "./movie.css";
 import { confirmDeletion } from "./deleteMovie.js";
+import { addWatchlist } from "./addwatchlist.js";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 var displaymovies;
-
+  var logdetails = localStorage.getItem("logdetails");
 class MoviesDisplay extends Component {
   constructor(dataFromParent) {
     super(dataFromParent);
@@ -36,6 +37,12 @@ class MoviesDisplay extends Component {
         displaymovies = this.state.list.map((movie, index) => (
           <div className="movie" key={index + movie[0].title}>
             <div className="movieHeader">
+            <button
+              className="watchlist"
+              onClick={() => addWatchlist(logdetails, movie[0].title)}
+            >
+              Add to my watchlist
+            </button>
               <h1 className="title">{movie[0].title}</h1>
               {this.props.dataFromParent ? (
                 <button

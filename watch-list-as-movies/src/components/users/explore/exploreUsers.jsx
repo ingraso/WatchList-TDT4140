@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import { Link } from "react-router-dom";
+import "./explore.css";
 
 var displayUsers;
 

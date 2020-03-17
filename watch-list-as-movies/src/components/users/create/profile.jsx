@@ -91,17 +91,17 @@ class Profile extends Component {
               </div>
             </div>
             <div className="form-row">
-            <div className="col">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Paste image URL"
-                onChange={this.handleInputChange}
-                name="imageUrl"
-                value={this.state.imageUrl}
-              ></input>
+              <div className="col">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Paste image URL"
+                  onChange={this.handleInputChange}
+                  name="imageUrl"
+                  value={this.state.imageUrl}
+                ></input>
+              </div>
             </div>
-          </div>
             <div className="form-row">
               <label className="ml-2">Date</label>
               <div className="col">

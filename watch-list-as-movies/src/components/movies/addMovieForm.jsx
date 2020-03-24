@@ -13,7 +13,8 @@ class Select extends React.Component {
       description: "",
       score: "1",
       imageUrl: "",
-      releaseDate: ""
+      releaseDate: "",
+      numberofscorers: "1"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,7 +31,10 @@ class Select extends React.Component {
       this.state.description,
       this.state.score,
       this.state.imageUrl,
-      this.state.releaseDate
+      this.state.releaseDate,
+      this.state.numberofscorers,
+
+
     );
     saveMovie(
       this.state.title,
@@ -39,7 +43,8 @@ class Select extends React.Component {
       this.state.description,
       this.state.score,
       this.state.imageUrl,
-      this.state.releaseDate
+      this.state.releaseDate,
+      this.state.numberofscorers
     );
   };
 

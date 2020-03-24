@@ -8,7 +8,8 @@ export function saveMovie(
   description,
   score,
   imageUrl,
-  releaseDate
+  releaseDate,
+  numberofscorers,
 ) {
   $(document).ready(function() {
     var param = {
@@ -18,7 +19,8 @@ export function saveMovie(
       description: description,
       score: score,
       imageUrl: imageUrl,
-      releaseDate: releaseDate
+      releaseDate: releaseDate,
+      numberofscorers: numberofscorers
     };
     saveReview(
       title,

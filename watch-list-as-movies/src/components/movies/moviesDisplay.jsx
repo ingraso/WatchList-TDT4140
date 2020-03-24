@@ -62,19 +62,13 @@ class MoviesDisplay extends Component {
                 />
               </div>
               <li>
-                <Link to={{
-                  pathname: '/movies/'+movie[0].title,
-                  state: {
-                    title: movie[0].title,
-                  }
 
-                }}>Review</Link>
               </li>
               <div className="movieInformation">
                 <p>
                   <b>Directed by:</b> {movie[0].director} <br></br>
                   <b>Duration:</b> {movie[0].duration} <br></br>
-                  <b>Score:</b> {movie[0].score} <br></br>
+                  <b>Score:</b> {Math.round(movie[0].score/movie[0].numberofscorers)} <br></br>
                   <p>
                     <b>Description placeholder text:</b>{" "}
                     {movie[0].description
@@ -84,6 +78,13 @@ class MoviesDisplay extends Component {
                 </p>
               </div>
             </div>
+            <Link to={{
+              pathname: '/movies/'+movie[0].title,
+              state: {
+                title: movie[0].title,
+              }
+
+            }}>Review</Link>
           </div>
         ));
 

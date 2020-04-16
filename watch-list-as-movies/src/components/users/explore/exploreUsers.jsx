@@ -47,7 +47,7 @@ class DisplayUsers extends Component {
                   }
                 }}
               >
-                user
+                {user[0].username}
               </Link>
             </td>
             <td>{user[0].firstName}</td>
@@ -68,7 +68,6 @@ class DisplayUsers extends Component {
           <Link to="/">Home</Link>
         </li>
         <table className="table table-striped table-dark">
-          <caption>List of users</caption>
           <thead>
             <tr>
               <th>Profile picture</th>

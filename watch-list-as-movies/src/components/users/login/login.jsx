@@ -174,7 +174,7 @@ class Login extends Component {
         <div className="content">
           <div>{this.state.isloggedin ? <Aside></Aside> : null}</div>
 
-          <MoviesDisplay dataFromParent={this.state.isadmin}></MoviesDisplay>
+          <MoviesDisplay dataFromParent={this.state.isadmin} loggedInData={this.state.isloggedin}></MoviesDisplay>
         </div>
       </div>
     );

@@ -41,26 +41,25 @@ class MyDiv extends React.Component {
         });
       })
       .then(() => {
-  console.log(result[6])
         var result1 = Object.keys(result[0][0]).map(function(key) {
           return [key];
         });
-        var watchlist = Object.keys(result[6][0]).map(function(key) {
+        var watchlist = Object.keys(result[7][0]).map(function(key) {
         return [(key), result[6][key]];
         });
 
 
         this.setState({ list1: watchlist });
     mywatchlist = this.state.list1.map((review, index) => (
-<h3>{review[0]}</h3>
+  <h3>{review[0]}</h3>
     ));
-    console.log(mywatchlist)
+
 
         this.setState({ list: result1 });
         this.setState({
           firstName: result[2],
-          lastName: result[3],
-          imageUrl: result[4]
+          lastName: result[4],
+          imageUrl: result[3]
         });
 
 
@@ -75,17 +74,18 @@ class MyDiv extends React.Component {
         <li>
           <Link to="/">Home</Link>
         </li>
+              <h1>Welcome to {this.state.username}'s profile!</h1>
         <img
           width="200"
           alt={`User name: ${this.state.username}`}
           src={this.state.imageUrl}
         />
-        <h1>{this.state.username}</h1>
-        <h1>firstName</h1>
-        <h1>lastName</h1>
+
+        <h1>{this.state.firstName}</h1>
+        <h1>{this.state.lastName}</h1>
         <button
           className="btn btn-primary"
-          onClick={() => alert("Not developed yet :/")}
+          onClick={() => alert("To be developed")}
         >
           Send Message
         </button>
@@ -97,8 +97,9 @@ class MyDiv extends React.Component {
         >
           Follow
         </button>
+        <h3>My WatchList: </h3>
         <div>
-        {mywatchlist} + test
+        {mywatchlist}
         </div>
       </div>
     );

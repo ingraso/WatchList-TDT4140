@@ -37,12 +37,16 @@ class MoviesDisplay extends Component {
         displaymovies = this.state.list.map((movie, index) => (
           <div className="movie" key={index + movie[0].title}>
             <div className="movieHeader">
-            <button
-              className="watchlist"
-              onClick={() => addWatchlist(logdetails, movie[0].title)}
-            >
-              Add to my watchlist
-            </button>
+
+
+            {this.props.loggedInData ? (
+              <button
+                className="watchlist"
+                onClick={() => addWatchlist(localStorage.getItem("logdetails"), movie[0].title)}
+              >
+                Add to my watchlist
+              </button>
+            ) : null}
               <h1 className="title">{movie[0].title}</h1>
               {this.props.dataFromParent ? (
                 <button
@@ -54,6 +58,13 @@ class MoviesDisplay extends Component {
               ) : null}
             </div>
             <div className="movieInfoContainer">
+            <Link to={{
+              pathname: '/movies/'+movie[0].title,
+              state: {
+                title: movie[0].title,
+              }
+
+            }}>
               <div className="movieImage">
                 <img
                   width="200"
@@ -61,30 +72,23 @@ class MoviesDisplay extends Component {
                   src={movie[0].imageUrl}
                 />
               </div>
-              <li>
+              </Link>
 
-              </li>
               <div className="movieInformation">
                 <p>
                   <b>Directed by:</b> {movie[0].director} <br></br>
                   <b>Duration:</b> {movie[0].duration} <br></br>
                   <b>Score:</b> {Math.round(movie[0].score/movie[0].numberofscorers)} <br></br>
-                  <p>
-                    <b>Description placeholder text:</b>{" "}
+
+                    <b>Description:</b>{" "}
                     {movie[0].description
                       ? movie[0].description
                       : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but "}
-                  </p>
+
                 </p>
               </div>
             </div>
-            <Link to={{
-              pathname: '/movies/'+movie[0].title,
-              state: {
-                title: movie[0].title,
-              }
 
-            }}>Review</Link>
           </div>
         ));
 

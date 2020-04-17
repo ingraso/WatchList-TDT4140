@@ -9,7 +9,8 @@ export function saveUser(username, password, firstName, lastName,imageUrl, birth
       lastName: lastName,
       birthday: birthday,
       imageUrl: imageUrl,
-      password: password
+      password: password,
+      watchlist: 0
     };
 
     $.ajax({

@@ -11,7 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 4. If it is the first time you're installing WatchList locally run "npm install".
 5. Otherwise you can start WatchList with npm start and the application will be hosted [Locally](http://localhost:3000).
 6. You can create a normal user through the application. However if you want admin privileges you can use the user:
-### `Username: a Password: a` 
+### `Username: a Password: a`
 
 ## Available Scripts
 
@@ -36,4 +36,4 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## API
 
-The project uses [Firebase](https://firebase.google.com/docs/web/setup) for API and hosting. The web hosted page can be found [Here](https://watchlistas.firebaseapp.com/). There is no need to sign in or add any tokens for API functions to work correctly as security tokens are added to all API requests needed.
+The project uses [Firebase](https://firebase.google.com/docs/web/setup) for API and hosting. The web hosted page can be found [Here](https://watchlistas.web.app/). There is no need to sign in or add any tokens for API functions to work correctly as security tokens are added to all API requests needed.

@@ -1,7 +1,10 @@
 # 31
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and is a movie review/database known as WatchList.
+## Motivation
+WatchList AS is a platform to review movies and series. The application was developed in cooperation with a product owner, in the TDT4140 course at NTNU during the spring semester in 2020.
 
+## Technology
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and is written in React frontend and JavaScript backend.
 
 ## Running Application
 
@@ -11,7 +14,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 4. If it is the first time you're installing WatchList locally run "npm install".
 5. Otherwise you can start WatchList with npm start and the application will be hosted [Locally](http://localhost:3000).
 6. You can create a normal user through the application. However if you want admin privileges you can use the user:
-### `Username: a Password: a` 
+### `Username: a`
+### `Password: a` 
 
 If you want further guidance on using the application, you can read [this](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/31/-/wikis/Wiki-1:-Brukermanual) user manual.
 

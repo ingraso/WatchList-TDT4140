@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Running the Application
 
-1. To run WatchList on your own computer you need to have a package manager installed. We recommend [Node Package Manager](https://www.npmjs.com/get-npm).
+1. To run WatchList on your own computer, you will need to have a package manager installed. We recommend [Node Package Manager](https://www.npmjs.com/get-npm).
 2. After installing a package manager you need to download the project and open the command line.
 3. From the command line, go into the folder titled "watch-list-as-movies".
 4. If it is the first time you're installing WatchList locally run "npm install". Otherwise you can start WatchList with "npm start", and the application will be hosted [locally](http://localhost:3000).

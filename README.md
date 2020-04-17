@@ -41,4 +41,4 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## API
 
-The project uses [Firebase](https://firebase.google.com/docs/web/setup) for API and hosting. The web hosted page can be found [Here](https://watchlistas.web.app/). There is no need to sign in or add any tokens for API functions to work correctly as security tokens are added to all API requests needed.
+The project uses [Firebase](https://firebase.google.com/docs/web/setup) for API and hosting. The web hosted page can be found [here](https://watchlistas.web.app/). There is no need to sign in or add any tokens for API functions to work correctly as security tokens are added to all API requests needed.

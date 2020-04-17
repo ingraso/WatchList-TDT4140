@@ -13,6 +13,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 6. You can create a normal user through the application. However if you want admin privileges you can use the user:
 ### `Username: a Password: a` 
 
+If you want further guidance on using the application, you can read [this](https://gitlab.stud.idi.ntnu.no/tdt4140-2020/31/-/wikis/Wiki-1:-Brukermanual) user manual.
+
 ## Available Scripts
 
 In the project directory, you can run:

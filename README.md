@@ -1,4 +1,14 @@
-# 31
+# WatchList AS - TDT4140
+This project was the submitted in the course TDT4140 - Software Engineering during the spring of 2020. The repository is cloned from GitLab, which is why the issues are not present etc.
+
+## Codeowners
+This project was created by:
+- Henrik Hodnefjeld
+- Ingrid Amalie Solbjørg (me)
+- Kaia Urdahl
+- Snorre Kristiansen
+- Tobias Spinnagr Sindre
+- Peder Myklebust
 
 ## Motivation
 WatchList AS is a platform where users can review movies and series. The application was developed in cooperation with a product owner, in the TDT4140 course at NTNU during the spring semester in 2020.
